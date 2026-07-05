@@ -1,0 +1,41 @@
+# Binaries and template matching
+bin/
+dist/
+main
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, coverage visualizers, etc.
+*.test
+*.out
+*.prof
+coverage.txt
+
+# Dependency directories
+vendor/
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*~
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Local databases and docker cache
+.docker/
+pgdata/
