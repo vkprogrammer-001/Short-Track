@@ -28,7 +28,12 @@ func (h *Handler) ShortenURL(c *gin.Context) {
         c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
         return
     }
-    c.JSON(http.StatusOK, gin.H{"short_url": "http://localhost:8080/" + code})
+	scheme := "http"
+	if c.Request.Header.Get("X-Forwarded-Proto") == "https" {
+		scheme = "https"
+	}
+	shortURL := scheme + "://" + c.Request.Host + "/" + code
+	c.JSON(http.StatusOK, gin.H{"short_url": shortURL})
 }
 
 func (h *Handler) Redirect(c *gin.Context) {
